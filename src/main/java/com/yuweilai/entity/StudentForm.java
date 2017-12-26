@@ -14,7 +14,7 @@ public class StudentForm {
 
     private List<Time> time;
 
-    private String course;
+    private List<String> course;
 
     private String name;
 
@@ -50,12 +50,12 @@ public class StudentForm {
         this.callName = callName == null ? null : callName.trim();
     }
 
-    public String getCourse() {
+    public List<String> getCourse() {
         return course;
     }
 
-    public void setCourse(String course) {
-        this.course = course == null ? null : course.trim();
+    public void setCourse(List<String> course) {
+        this.course = course;
     }
 
     public String getName() {

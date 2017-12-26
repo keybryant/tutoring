@@ -243,6 +243,76 @@ public class CompanyExample {
             addCriterion("TEL not between", value1, value2, "tel");
             return (Criteria) this;
         }
+
+        public Criteria andTeamInfoIsNull() {
+            addCriterion("TEAM_INFO is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamInfoIsNotNull() {
+            addCriterion("TEAM_INFO is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamInfoEqualTo(String value) {
+            addCriterion("TEAM_INFO =", value, "teamInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamInfoNotEqualTo(String value) {
+            addCriterion("TEAM_INFO <>", value, "teamInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamInfoGreaterThan(String value) {
+            addCriterion("TEAM_INFO >", value, "teamInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamInfoGreaterThanOrEqualTo(String value) {
+            addCriterion("TEAM_INFO >=", value, "teamInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamInfoLessThan(String value) {
+            addCriterion("TEAM_INFO <", value, "teamInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamInfoLessThanOrEqualTo(String value) {
+            addCriterion("TEAM_INFO <=", value, "teamInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamInfoLike(String value) {
+            addCriterion("TEAM_INFO like", value, "teamInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamInfoNotLike(String value) {
+            addCriterion("TEAM_INFO not like", value, "teamInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamInfoIn(List<String> values) {
+            addCriterion("TEAM_INFO in", values, "teamInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamInfoNotIn(List<String> values) {
+            addCriterion("TEAM_INFO not in", values, "teamInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamInfoBetween(String value1, String value2) {
+            addCriterion("TEAM_INFO between", value1, value2, "teamInfo");
+            return (Criteria) this;
+        }
+
+        public Criteria andTeamInfoNotBetween(String value1, String value2) {
+            addCriterion("TEAM_INFO not between", value1, value2, "teamInfo");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

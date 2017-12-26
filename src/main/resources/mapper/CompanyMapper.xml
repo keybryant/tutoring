@@ -4,6 +4,7 @@
   <resultMap id="BaseResultMap" type="com.yuweilai.entity.Company">
     <result column="INTRODUCE" jdbcType="VARCHAR" property="introduce" />
     <result column="TEL" jdbcType="VARCHAR" property="tel" />
+    <result column="TEAM_INFO" jdbcType="VARCHAR" property="teamInfo" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -64,7 +65,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    INTRODUCE, TEL
+    INTRODUCE, TEL, TEAM_INFO
   </sql>
   <select id="selectByExample" parameterType="com.yuweilai.entity.CompanyExample" resultMap="BaseResultMap">
     select
@@ -87,8 +88,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.yuweilai.entity.Company">
-    insert into company (INTRODUCE, TEL)
-    values (#{introduce,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR})
+    insert into company (INTRODUCE, TEL, TEAM_INFO
+      )
+    values (#{introduce,jdbcType=VARCHAR}, #{tel,jdbcType=VARCHAR}, #{teamInfo,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.yuweilai.entity.Company">
     insert into company
@@ -99,6 +102,9 @@
       <if test="tel != null">
         TEL,
       </if>
+      <if test="teamInfo != null">
+        TEAM_INFO,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="introduce != null">
@@ -106,6 +112,9 @@
       </if>
       <if test="tel != null">
         #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="teamInfo != null">
+        #{teamInfo,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -124,6 +133,9 @@
       <if test="record.tel != null">
         TEL = #{record.tel,jdbcType=VARCHAR},
       </if>
+      <if test="record.teamInfo != null">
+        TEAM_INFO = #{record.teamInfo,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -132,7 +144,8 @@
   <update id="updateByExample" parameterType="map">
     update company
     set INTRODUCE = #{record.introduce,jdbcType=VARCHAR},
-      TEL = #{record.tel,jdbcType=VARCHAR}
+      TEL = #{record.tel,jdbcType=VARCHAR},
+      TEAM_INFO = #{record.teamInfo,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>

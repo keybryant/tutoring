@@ -173,5 +173,24 @@ public class UserController {
         map.put("userInfo",userInfo);
         return ResultUtil.ok(map);
     }
+    @RequestMapping(value="/getCode",method = RequestMethod.POST)
+    public @ResponseBody
+    Object getCode(HttpServletRequest request){
+        Code code=new Code();
+        code.setCode("123456");
+        code.setTime(System.currentTimeMillis());
+        request.getSession().setAttribute("code",code);
+        return ResultUtil.ok();
+    }
+    @RequestMapping(value="/verifyCode",method = RequestMethod.POST)
+    public @ResponseBody
+    Object getCode(HttpServletRequest request,@RequestBody Code code){
+        Code realCode=(Code)request.getSession().getAttribute("code");
+        if(code.getCode().equals(realCode.getCode())&&(System.currentTimeMillis()-realCode.getTime())<600000){
+            return ResultUtil.ok();
+        }
+        return ResultUtil.build(101,"Verification code wrong");
+
+    }
 
 }

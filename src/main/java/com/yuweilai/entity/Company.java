@@ -5,6 +5,8 @@ public class Company {
 
     private String tel;
 
+    private String teamInfo;
+
     public String getIntroduce() {
         return introduce;
     }
@@ -19,5 +21,13 @@ public class Company {
 
     public void setTel(String tel) {
         this.tel = tel == null ? null : tel.trim();
+    }
+
+    public String getTeamInfo() {
+        return teamInfo;
+    }
+
+    public void setTeamInfo(String teamInfo) {
+        this.teamInfo = teamInfo == null ? null : teamInfo.trim();
     }
 }

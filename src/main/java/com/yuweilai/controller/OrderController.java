@@ -52,8 +52,15 @@ public class OrderController {
         if(studentForm.getGrade()!=null){
             student.setGrade(studentForm.getGrade());
         }
-        if(studentForm.getCourse()!=null){
-            student.setCourse(studentForm.getCourse());
+        if(!studentForm.getCourse().isEmpty()){
+            try{
+                ObjectMapper objectMapper=new ObjectMapper();
+                s=objectMapper.writeValueAsString(studentForm.getCourse());
+                logger.info(s);
+                student.setTime(s);
+            }catch (Exception e){
+                e.printStackTrace();
+            }
         }
         if(studentForm.getFeature()!=null){
             student.setFeature(studentForm.getFeature());
